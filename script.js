@@ -1,73 +1,33 @@
 
-// // Типы данных в JS
+let money = prompt('Какая у вас заработная плата на месяц?');
 
-// let string = 'isa';  -  Строка
-// let number = 23;     -  Число
-// let boolean = true;  -  Логический
-// let sym = Symbol();  -  Символные 
-// let object = {};     -  Комплексные
-// null;                -  Неизвестное
-// undefined;           -  Неприсвоенно
+time = prompt('Введите дату в формате YYYY-MM-DD');
 
-console.log(4/0); 
-// Infinity
-
-console.log(10 / 'str');
-// NaN
-
-let phone;
-console.log(phone);
-
-
-let player = {
-    LastName: 'Isa',
-    age: 23
+let appDate = {
+    budget: money,
+    timeDate: time,
+    expenses: {},
+    optionalExpenses: {},
+    income: [],
+    savings: false
 }
 
-console.log(player['LastName']);
-console.log(player.age);
+let first = prompt('Введите обязательную статью расходов в этом месяце');
+
+second = prompt('Во сколько обойдется?');
+
+third = prompt('Введите обязательную статью расходов в этом месяце');
+
+fourth = prompt('Во сколько обойдется?');
 
 
-let number = [10, 20, 30];
-console.log(number[2]);
+expenses: {
+  first: '';
+  second: '';
+}
 
-// alert('Привет мир');
+// appDate.expenses.first = second;
 
-// prompt('Это ты?');
+// appDate.expenses.third = fourth;
 
-// confirm('Да, это я')
-
-console.log(typeof('Пргеры'));
-
-
-console.log('isa' + ' tagirov');
-
-console.log('isa' + 23);
-
-// let tag = +prompt('ееее');
-
-console.log(typeof(tag));
-
-// typeof - Проверяет значение то есть какой тип данных введен
-
-// '+' - Унарный плюс, если вставит перед значением меняет строку на число
-
-let incr = 5;
-decr = 6;
-
-console.log(++incr);
-
-console.log(--decr);
-
-console.log(10 % 4);
-
-console.log(10 == 10);
-
-console.log(10 === '10');
-
-let button = false;
-    buttons = true;
-
-    console.log(button && buttons);
-    console.log(button || buttons);    
-    console.log(button || !buttons);
+alert(appDate.budget / 30);
