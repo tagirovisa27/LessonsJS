@@ -1,33 +1,33 @@
-
-let money = prompt('Какая у вас заработная плата на месяц?');
-
-time = prompt('Введите дату в формате YYYY-MM-DD');
-
-let appDate = {
-    budget: money,
-    timeDate: time,
-    expenses: {},
-    optionalExpenses: {},
-    income: [],
-    savings: false
-}
-
-let first = prompt('Введите обязательную статью расходов в этом месяце');
-
-second = prompt('Во сколько обойдется?');
-
-third = prompt('Введите обязательную статью расходов в этом месяце');
-
-fourth = prompt('Во сколько обойдется?');
+//                Тестирование
+// Выберите правильный вариант ответа
 
 
-expenses: {
-  first: '';
-  second: '';
-}
 
-// appDate.expenses.first = second;
+// Сколько типов данных существует в JS?
 
-// appDate.expenses.third = fourth;
+// 7
+// 5
+// 6
+// 4
 
-alert(appDate.budget / 30);
+// Ответ: 7
+
+
+// Как вывести информацию в консоль?
+
+// print.log()
+// console.log()
+// alert()
+// print.console()
+
+// Ответ: console.log();
+
+
+// Какая функция операторов || и && ?
+
+// Логические операторы ИЛИ и И
+// Логические операторы И и ИЛИ
+// В JS таких операторов не существует
+// Операторы вычитания и сложения в JS
+
+// Ответ: Логические операторы ИЛИ и И
