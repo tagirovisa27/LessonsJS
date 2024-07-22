@@ -1,22 +1,47 @@
-let number = 30;
 
-while (number < 35) {
-    console.log(number);
-    number++;
+let money = +prompt('Какая у вас зарплата на месяц?');
+
+time = prompt('Введите дату в формате YYYY-MM-DD');
+
+let appDate = {
+  budget: money,
+  timeDate: time,
+  expenses: {},
+  optionalExpenses: {},
+  income: [],
+  savings: false
 }
 
-let numbers = 30;
+for (let i = 0; i < 2; i++) {
+  let a = prompt('Введите обязательную статью расходов в этом месяце', '');
+     b = prompt('Во сколько обойдется?', '');
 
-do {
-    console.log(numbers);
-    numbers++;
+  if (typeof(a) === 'string' && (typeof (a)) != null && (typeof (b)) != null
+    && a != '' && b != '' && a.length < 10) {
+
+    console.log('done');
+
+    appDate.expenses[a] = b;
+
+  } else {
+     console.log('Ошибка!');
+     i--;
+  }
+};
+
+appDate.moneyPerDay = appDate.budget / 30;
+
+alert('Ежедневный бюджет: ' + appDate.moneyPerDay);
+
+if (appDate.moneyPerDay < 2000) {
+  console.log('Минимальная зарплата');
+} else if (appDate.moneyPerDay > 2000 && appDate.moneyPerDay < 3000) {
+  console.log('Средняя зарплата');
+} else if (appDate.moneyPerDay > 3000) {
+  console.log('Высокая зарплата');
+} else {
+    console.log('Ошибка');
 }
-while (numbers < 35);
 
-for (let i = 1; i < 10; i++) {
-    if (i == 5) {
-        continue;
-    }
-    console.log(i);
-}в
+console.log(appDate);
 

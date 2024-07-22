@@ -1,0 +1,12 @@
+.nameProg {
+    width: 500px;
+    text-align: center;
+    margin-top: 350px;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+}
