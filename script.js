@@ -1,26 +1,22 @@
-let num = 100;
+let number = 30;
 
-if (num < 50) {
-    console.log('Неверно!');
-} else if (num > 150) {
-    console.log('Много!');
-} else {
-    console.log('Верно!');
+while (number < 35) {
+    console.log(number);
+    number++;
 }
 
-(num) == 100 ? console.log('Верно!') : console.log('Неверно!');
+let numbers = 30;
 
-
-let number = 200;
-
-switch (number) {
-    case number < 100:
-        console.log('Неверно!');
-        break;
-    case number > 100:
-        console.log('Меньше!');
-        break;
-    case 200:
-        console.log('Верно!');
-        break;
+do {
+    console.log(numbers);
+    numbers++;
 }
+while (numbers < 35);
+
+for (let i = 1; i < 10; i++) {
+    if (i == 5) {
+        continue;
+    }
+    console.log(i);
+}в
+
