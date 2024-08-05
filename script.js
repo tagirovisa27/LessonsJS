@@ -1,56 +1,77 @@
-let num = 20;
 
-function showFirstMassege(text) {
-  alert(text);
-  let num = 10;
-  console.log(num);
+// Программа для рассчета финансовых 
+// показателей на JavaScript
+
+let money, time;
+
+function start() {  
+    money = +prompt('Какая у вас зарплата на месяц?', '');
+    time = prompt('Введите дату в формате YYYY-MM-DD', '');
+
+    while (isNaN(money) || money == '' || money == null) {
+        money = +prompt('Какая у вас зарплата на месяц?', '');  
+    }
+}
+start();  
+
+let appDate = {
+  budget: money,
+  timeDate: time,
+  expenses: {},
+  optionalExpenses: {},
+  income: [],
+  savings: true
 }
 
-showFirstMassege('Привет!');
-
-console.log(num);
-
-
-function calculate(a,b) {
-  return (a + b);
+function chooseExpenses() {
+  for (let i = 0; i < 2; i++) {
+    let a = prompt('Введите обязательную статью расходов в этом месяце', '');
+        b = +prompt('Во сколько обойдется?', '');
+  
+      if (typeof (a) === 'string' && (typeof (a)) != null && (typeof (b)) != null
+         && a != '' && b != '' && a.length < 10) {
+         appDate.expenses[a] = b;
+    } else {
+      i--;
+    }
+  }  
 }
+chooseExpenses();
 
-console.log(calculate(3,4));
-
-console.log(calculate(8,4));
-
-function retVar() {
-  let num = 30;
-  return num;
+function detectDayBudget() {
+  appDate.moneyPerDay = (appDate.budget / 30).toFixed();
+    alert('Ежедневный бюджет: ' + appDate.moneyPerDay + 'руб.');
 }
+detectDayBudget();
 
-let a = retVar();
-
-console.log(a);
-
-
-let calc = function(a,b) {
-  return (a + b);
+function detectLevel() {
+  if (appDate.moneyPerDay < 2000) {
+    alert('Минимальная зарплата');
+  } else if (appDate.moneyPerDay > 2000 && appDate.moneyPerDay < 3000) {
+    alert('Средняя зарплата');
+  } else if (appDate.moneyPerDay > 3000) {
+    alert('Высокая зарплата');
+  } else {
+    alert('Ошибка!');
+  }
 }
+detectLevel();
 
-// let calc = (a, b) => {a+b} 
+function checkSavings() {
+   if (appDate.savings == true) {
+      let save = +prompt('Какова сумма накоплений?'),
+        perсent = +prompt('Под какой процент?');
 
+        appDate.monthIncome = (save/100/12*perсent).toFixed();
+          alert('Доход в месяц с вашего депозита: ' + appDate.monthIncome);  
+   }  
+}
+checkSavings();
 
-// function declaration & expation
-
-
-let str = 'test';
-
-console.log(str.length);
-
-console.log(str.toUpperCase());
-
-console.log(str.toLowerCase());
-
-let number = '30.7px';
-
-console.log(Math.round(number));
-
-console.log(parseInt(number));
-
-console.log(parseFloat(number));
+function chooseOptExpenses() {
+  for (let i = 0; i < 3; i++) {
+     let questionOptExpenses = prompt('Статья необязательных расходов?');
+     appDate.optionalExpenses[i] = questionOptExpenses;
+  } 
+}
+chooseOptExpenses();
