@@ -39,6 +39,7 @@ let appDate = {
     alert('Ежедневный бюджет: ' + appDate.moneyPerDay + 'руб.');
   },
   detectLevel: function () {
+
     if (appDate.moneyPerDay < 2000) {
       alert('Минимальная зарплата');
     } else if (appDate.moneyPerDay > 2000 && appDate.moneyPerDay < 3000) {
@@ -65,6 +66,7 @@ let appDate = {
     }
   },
   chooseIncome: function () {
+
     let items = prompt('Что приенесет дополнительный доход? (Перечистлите через запятую)', '');
 
     if ((typeof (items)) != 'string' || items == '' || typeof (items) == null) {
@@ -74,12 +76,12 @@ let appDate = {
       appDate.income.push(prompt('Может что-то еще?'));
       appDate.income.sort();
     }
-    appDate.income.forEach(function(massive, i){
-      alert('Способы доп. заработка: ' + (i) + '-' + massive)
+    appDate.income.forEach(function (massive, i) {
+      alert('Способы доп. заработка: ' + (i++) + ' - ' + massive)
     })
   }
 };
 
-for(let key in appDate) {
+for (let key in appDate) {
   console.log('Наша программа включает в себя данные: ' + key + ' - ' + appDate[key]);
 }
