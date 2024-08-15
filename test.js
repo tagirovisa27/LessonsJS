@@ -1,43 +1,22 @@
+let menu = document.getElementsByClassName("menu")[0],
+    menuItem = document.getElementsByClassName("menu-item"),
+    title = document.getElementById("title"),
+    adv = document.getElementsByClassName("adv")[0],
+    promptOpt = document.querySelector("#prompt"),
+    menuItemLi = document.createElement("li");
 
-let box = document.getElementById('box'),
-    btn = document.getElementsByTagName('button'),
-    circles = document.getElementsByClassName('circle'),
-    heart = document.querySelectorAll('.heart'),
-    oneHearth = document.querySelector('.heart'),
-    wrapper = document.querySelector('.wrapper');
+menu.insertBefore(menuItem[2], menuItem[1]);
 
-box.style.backgroundColor = 'black';
-btn[1].style.backgroundColor = 'blue';
-btn[0].style.borderRadius = '50px';
+menuItemLi.classList.add("menu-item");
+menuItemLi.textContent = "Пятый элемент";
+menu.appendChild(menuItemLi);
 
-circles[0].style.background = 'red';
-circles[1].style.background = 'yellow';
-circles[2].style.background = 'green';
+document.body.style.backgroundImage = "url('/img/apple_true.jpg')";
 
-// for(i = 0; i < heart.length; i++) {
-//     heart[i].style.backgroundColor = 'blue';
-// }
+title.textContent = "Мы продаем только подлинную технику Apple"
 
-// heart.forEach(function(item, i, hearts){
-//    item.style.backgroundColor = 'blue';
-// });
+adv.remove();
 
-let div = document.createElement('div');
-let text = document.createTextNode('Programmer');
+let a = prompt("Ваше отношение к технике Apple?");
 
-div.classList.add('black');
-
-// document.body.appendChild(div);
-
-// wrapper.appendChild(div);
-
-// div.innerHTML = '<h2>Programmer</h2>';
-
-div.textContent = 'Programmer';
-
-document.body.insertBefore(div, circles[0]);
-document.body.removeChild(circles[1]);
-
-wrapper.removeChild(heart[1]);
-document.body.replaceChild(btn[1], circles[0]);
-
+promptOpt.textContent = a;
