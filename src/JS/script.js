@@ -13,13 +13,13 @@ let startBtn = document.getElementById('start'),
 
   appOffBtn = document.getElementsByTagName('button')[0],
   appOnBtn = document.getElementsByTagName('button')[1],
-  calcBtn = document.getElementsByTagName('button')[2],
+  calcBtn = document.getElementsByTagName('button')[2];
 
-  optionalexpensesItem = document.querySelectorAll('optionalexpenses-item'),
+optionalExpensesItem = document.querySelectorAll('optionalexpenses-item'),
 
   incomeItem = document.querySelector('.choose-income'),
   savingsBtn = document.querySelector('#savings'),
-  Sum = document.querySelector('.choose-sum'),
+  SumValue = document.querySelector('.choose-sum'),
   percent = document.querySelector('.choose-percent'),
   yearValue = document.querySelector('.year-value'),
   monthValue = document.querySelector('.month-value'),
@@ -47,9 +47,9 @@ let appDate = {
   chooseExpenses: function () {
     for (let i = 0; i < 2; i++) {
       let a = prompt('Введите обязательную статью расходов в этом месяце', '');
-      b = +prompt('Во сколько обойдется?', '');
+          b = +prompt('Во сколько обойдется?', '');
 
-      if (typeof (a) === 'string' && (typeof (a)) != null && (typeof (b)) != null
+      if (typeof (a) === 'string' && typeof (b) === 'number' && (typeof (a)) != null && (typeof (b)) != null
         && a != '' && b != '' && a.length < 10) {
         appDate.expenses[a] = b;
       } else {
@@ -76,7 +76,7 @@ let appDate = {
   checkSavings: function () {
     if (appDate.savings == true) {
       let save = +prompt('Какова сумма накоплений?'),
-        perсent = +prompt('Под какой процент?');
+          perсent = +prompt('Под какой процент?');
 
       appDate.monthIncome = (save / 100 / 12 * perсent).toFixed();
       alert('Доход в месяц с вашего депозита: ' + appDate.monthIncome);
