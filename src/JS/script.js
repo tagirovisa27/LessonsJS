@@ -1,5 +1,4 @@
 let startBtn = document.getElementById('start'),
-
   budgetValue = document.getElementsByClassName('budget-value')[0],
   dayBudgetValue = document.getElementsByClassName('daybudget-value')[0],
   levelValue = document.getElementsByClassName('level-value')[0],
@@ -15,39 +14,26 @@ let startBtn = document.getElementById('start'),
   appOnBtn = document.getElementsByTagName('button')[1],
   calcBtn = document.getElementsByTagName('button')[2];
 
-optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
+  optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
 
   incomeItem = document.querySelector('.choose-income'),
   savingsBtn = document.querySelector('#savings'),
-  SumValue = document.querySelector('.choose-sum'),
+  sumValue = document.querySelector('.choose-sum'),
   percentValue = document.querySelector('.choose-percent'),
   yearValue = document.querySelector('.year-value'),
   monthValue = document.querySelector('.month-value'),
   dayValue = document.querySelector('.day-value');
 
-calcBtn.addEventListener('click', function () {
-
-  if (appDate.budget != undefined) {
-    appDate.moneyPerDay = (appDate.budget / 30).toFixed();
-    dayBudgetValue.textContent = appDate.moneyPerDay;
-
-    if (appDate.moneyPerDay < 2000) {
-      levelValue.textContent = 'Минимальная зарплата';
-    } else if (appDate.moneyPerDay > 2000 && appDate.moneyPerDay < 3000) {
-      levelValue.textContent = 'Средняя зарплата';
-    } else if (appDate.moneyPerDay > 3000) {
-      levelValue.textContent = 'Высокая зарплата';
-    } else {
-      levelValue.textContent = 'Ошибка!';
-    }
-  } else {
-    dayBudgetValue.textContent = 'Произошла ошибка';
-  }
-});
-
 let money, time;
 
-startBtn.addEventListener('click', function () {
+calcBtn.disabled = true;
+appOffBtn.disabled = true;
+appOnBtn.disabled = true;
+incomeItem.disabled = true;
+sumValue.disabled = true;
+percentValue.disabled = true;
+
+startBtn.addEventListener('click', () => {
   time = prompt('Введите дату в формате YYYY-MM-DD', '');
   money = +prompt('Какая у вас зарплата на месяц?', '');
 
@@ -60,9 +46,16 @@ startBtn.addEventListener('click', function () {
   yearValue.value = new Date(Date.parse(time)).getFullYear();
   monthValue.value = new Date(Date.parse(time)).getMonth() + 1;
   dayValue.value = new Date(Date.parse(time)).getDate();
+
+  calcBtn.disabled = false;
+  appOffBtn.disabled = false;
+  appOnBtn.disabled = false;
+  incomeItem.disabled = false;
+  sumValue.disabled = false;
+  percentValue.disabled = false;
 });
 
-appOffBtn.addEventListener('click', function () {
+appOffBtn.addEventListener('click', () => {
   let sum = 0;
 
   for (let i = 0; i < expensesItem.length; i++) {
@@ -80,7 +73,7 @@ appOffBtn.addEventListener('click', function () {
   expensesValue.textContent = sum;
 });
 
-appOnBtn.addEventListener('click', function () {
+appOnBtn.addEventListener('click', () => {
   for (let i = 0; i < optionalExpensesItem.length; i++) {
     let opt = optionalExpensesItem[i].value;
     appDate.optionalExpenses[i] = opt;
@@ -88,13 +81,35 @@ appOnBtn.addEventListener('click', function () {
   }
 });
 
-incomeItem.addEventListener('input', function () {
-  let items = incomeItem.value;
-  appDate.income = items.split(', ');
-  incomeValue.textContent = appDate.income;
+calcBtn.addEventListener('click', () => {
+
+  if (appDate.budget != undefined) {
+    appDate.moneyPerDay = (appDate.budget / 30).toFixed();
+    dayBudgetValue.textContent = appDate.moneyPerDay;
+
+    if (appDate.moneyPerDay < 2000) {
+      levelValue.textContent = 'Минимальная зарплата';
+    } else if (appDate.moneyPerDay > 2000 && appDate.moneyPerDay < 3000) {
+      levelValue.textContent = 'Средняя зарплата';
+    } else if (appDate.moneyPerDay > 3000) {
+      levelValue.textContent = 'Высокая зарплата';
+    } else {
+      levelValue.textContent = 'Ошибка!';
+    }
+  } else {
+    dayBudgetValue.textContent = 'Произошла ошибка!';
+  }
 });
 
-savingsBtn.addEventListener('click', function () {
+incomeItem.addEventListener('input', () => {
+  let items = incomeItem.value;
+  if (isNaN(items) || items != '') {
+    appDate.income = items.split(', ');
+    incomeValue.textContent = appDate.income;
+  }
+});
+
+savingsBtn.addEventListener('click', () => {
   if (appDate.savings == true) {
     appDate.savings = false;
   } else {
@@ -102,33 +117,29 @@ savingsBtn.addEventListener('click', function () {
   }
 });
 
-SumValue.addEventListener('input', function () {
+sumValue.addEventListener('input', () => {
   if (appDate.savings == true) {
-    let = sum = +SumValue.value,
+    let = sum = +sumValue.value,
       percent = +percentValue.value;
-
     appDate.monthIncome = sum / 100 / 12 * percent;
     appDate.yearIncome = sum / 100 * percent;
-
     monthSavingsValue.textContent = appDate.monthIncome.toFixed(1);
     yearSavingsValue.textContent = appDate.yearIncome.toFixed(1);
   }
 });
 
-percentValue.addEventListener('input', function () {
+percentValue.addEventListener('input', () => {
   if (appDate.savings == true) {
-    let = sum = +SumValue.value,
+    let = sum = +sumValue.value,
       percent = +percentValue.value;
-
     appDate.monthIncome = sum / 100 / 12 * percent;
     appDate.yearIncome = sum / 100 * percent;
-
     monthSavingsValue.textContent = appDate.monthIncome.toFixed(1);
     yearSavingsValue.textContent = appDate.yearIncome.toFixed(1);
   }
 });
 
-let appDate = {
+const appDate = {
   budget: money,
   timeDate: time,
   expenses: {},
