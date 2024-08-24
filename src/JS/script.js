@@ -14,7 +14,7 @@ let startBtn = document.getElementById('start'),
   appOnBtn = document.getElementsByTagName('button')[1],
   calcBtn = document.getElementsByTagName('button')[2];
 
-  optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
+ optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
 
   incomeItem = document.querySelector('.choose-income'),
   savingsBtn = document.querySelector('#savings'),
