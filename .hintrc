@@ -10,6 +10,8 @@
       {
         "button-name": "off"
       }
-    ]
+    ],
+    "button-type": "off",
+    "meta-viewport": "off"
   }
 }
