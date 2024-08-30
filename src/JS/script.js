@@ -37,7 +37,7 @@ startBtn.addEventListener('click', () => {
   time = prompt('Введите дату в формате YYYY-MM-DD', '');
   money = +prompt('Какая у вас зарплата на месяц?', '');
 
-  while (isNaN(money) || money == '' || money == null) {
+  while (isNaN(money) || money == '' || money == null ) {
     money = +prompt('Какая у вас зарплата на месяц?', '');
   }
   appDate.budget = money;
