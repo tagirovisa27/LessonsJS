@@ -14,7 +14,7 @@ let startBtn = document.getElementById('start'),
   appOnBtn = document.getElementsByTagName('button')[1],
   calcBtn = document.getElementsByTagName('button')[2];
 
- optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
+optionalExpensesItem = document.querySelectorAll('.optionalexpenses-item'),
 
   incomeItem = document.querySelector('.choose-income'),
   savingsBtn = document.querySelector('#savings'),
@@ -37,7 +37,7 @@ startBtn.addEventListener('click', () => {
   time = prompt('Введите дату в формате YYYY-MM-DD', '');
   money = +prompt('Какая у вас зарплата на месяц?', '');
 
-  while (isNaN(money) || money == '' || money == null ) {
+  while (isNaN(money) || money == '' || money == null) {
     money = +prompt('Какая у вас зарплата на месяц?', '');
   }
   appDate.budget = money;
@@ -87,17 +87,15 @@ calcBtn.addEventListener('click', () => {
     appDate.moneyPerDay = (appDate.budget / 30).toFixed();
     dayBudgetValue.textContent = appDate.moneyPerDay;
 
-    if (appDate.moneyPerDay < 2000) {
+    if (appDate.moneyPerDay < 20000) {
       levelValue.textContent = 'Минимальная зарплата';
-    } else if (appDate.moneyPerDay > 2000 && appDate.moneyPerDay < 3000) {
+    } else if (appDate.moneyPerDay > 20000 && appDate.moneyPerDay < 30000) {
       levelValue.textContent = 'Средняя зарплата';
-    } else if (appDate.moneyPerDay > 3000) {
+    } else if (appDate.moneyPerDay > 30000) {
       levelValue.textContent = 'Высокая зарплата';
     } else {
       levelValue.textContent = 'Ошибка!';
     }
-  } else {
-    dayBudgetValue.textContent = 'Произошла ошибка!';
   }
 });
 
