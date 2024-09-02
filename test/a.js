@@ -78,18 +78,37 @@ const square = new Rectangle(10);
 console.log(square.calcArea());
 
 let video = ['youtube', 'ivi', 'rutube'];        //Spread-операторы - Оператор разворота (Массив данных)                  
-    blogs = ['wordpress', 'live', 'bloger'];
-    internet = [...video, ...blogs, 'vk', 'telegram'];
+blogs = ['wordpress', 'live', 'bloger'];
+internet = [...video, ...blogs, 'vk', 'telegram'];
 
 console.log(internet);
 
 
-function log (a, b, c) {
-   console.log(a);
-   console.log(b);
-   console.log(c);
+function log(a, b, c) {
+    console.log(a);
+    console.log(b);
+    console.log(c);
 }
 
 let numbers = [2, 5, 7];
 
 log(...numbers);
+
+
+class Options {                                             //homework
+    constructor(height, width, bg, fontSize, textAlign) {
+        this.height = height;
+        this.width = width;
+        this.bg = bg;
+        this.fontSize = fontSize;
+        this.textAlign = textAlign;
+    }
+    newBlock() {
+        let elem = document.createElement('div');
+        document.body.appendChild(elem);
+        let param = `height:${this.height}px; width:${this.width}px; background-color:${this.bg}; fontSize:${this.fontSize}px; textAlign:${this.textAlign}`;
+        elem.style.cssText = param;
+    }
+}
+const item = new Options(100, 150, 'blue', 20, 'center');
+item.newBlock();
