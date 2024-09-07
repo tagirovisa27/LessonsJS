@@ -88,7 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setClock('timer', deadline);
 
-    // Modal
+    // Modal window
 
     let more = document.querySelector('.more'),
         overlay = document.querySelector('.overlay'),
