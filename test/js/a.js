@@ -11,24 +11,25 @@ inputRub.addEventListener('input', () => {
     request.addEventListener('readystatechange', function () {
         if (request.readyState === 4 && request.status == 200) {
             let date = JSON.parse(request.response);
-
             inputUsd.value = inputRub.value / date.usd;
+            if (!isNaN(inputRub.value)) {
+                inputUsd.value = inputRub.value / date.usd;
+            } else {
+                inputUsd.value = '';
+            }
         } else {
             inputUsd.value = "Ошибка!";
         }
-
     });
 });
-
-// AJAX - 
 
 // http-запросы
 // XMLHttpRequest(); - Объект
 
-// Методы 
+// Методы
 // open - Настройка запроса
 // method - общение между клиентом и сервером GET POST
-// URL - Путь к серверу локальный глобальный итд  
+// URL - Путь к серверу локальный глобальный итд
 // async - Асинхронность запроса по умолчанию true (false)
 // login password - Имя пользователя и пороль
 
@@ -36,6 +37,6 @@ inputRub.addEventListener('input', () => {
 // Свойство
 // status - http-код ответ от сервера - 404, 403, 0 итд
 // statusText - Текстовый ответ от сервера - ok, notfound
-// responseText - Текст ответа сервера от разработчика  - response
-// readyState - Текущая тояние запроса - этапы 
+// responseText - Текстовый ответ сервера от разработчика  - response
+// readyState - Текущая состояние запроса - этапы 
 

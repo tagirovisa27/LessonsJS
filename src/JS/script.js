@@ -40,6 +40,7 @@ startBtn.addEventListener('click', () => {
   while (isNaN(money) || money == '' || money == null) {
     money = +prompt('Какая у вас зарплата на месяц?', '');
   }
+
   appDate.budget = money;
   appDate.timeDate = time;
   budgetValue.textContent = money.toFixed();
