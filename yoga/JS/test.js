@@ -1,9 +1,6 @@
-window.addEventListener('DOMContentLoaded', () => {
+window.addEventListener('DOMContentLoaded', function () {
 
     'use strict';
-
-    // tabs
-
     let tab = document.querySelectorAll('.info-header-tab'),
         info = document.querySelector('.info-header'),
         tabContent = document.querySelectorAll('.info-tabcontent');
@@ -24,7 +21,7 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     }
 
-    info.addEventListener('click', (event) => {
+    info.addEventListener('click', function (event) {
         let target = event.target;
         if (target && target.classList.contains('info-header-tab')) {
             for (let i = 0; i < tab.length; i++) {
@@ -38,9 +35,9 @@ window.addEventListener('DOMContentLoaded', () => {
 
     });
 
-    // Timer
+    // Timer 
 
-    let deadline = '2024-09-1';
+    let deadline = '2018-11-21';
 
     function getTimeRemaining(endtime) {
         let t = Date.parse(endtime) - Date.parse(new Date()),
@@ -88,65 +85,63 @@ window.addEventListener('DOMContentLoaded', () => {
 
     setClock('timer', deadline);
 
-    // Modal window
+    // Modal
 
     let more = document.querySelector('.more'),
         overlay = document.querySelector('.overlay'),
         close = document.querySelector('.popup-close');
 
-    more.addEventListener('click', () => {
+    more.addEventListener('click', function () {
         overlay.style.display = 'block';
         this.classList.add('more-splash');
         document.body.style.overflow = 'hidden';
     });
 
-    close.addEventListener('click', () => {
+    close.addEventListener('click', function () {
         overlay.style.display = 'none';
         more.classList.remove('more-splash');
         document.body.style.overflow = '';
     });
 
-    //form
+    // Form
 
     let message = {
         loading: 'Загрузка...',
-        success: 'Спасибо! скоро мы с вами свяжимся!',
+        success: 'Спасибо! Скоро мы с вами свяжемся!',
         failure: 'Что-то пошло не так...'
     };
 
     let form = document.querySelector('.main-form'),
-        input = document.getElementsByTagName('input'),
-        statusMasage = document.createElement('div');
+        input = form.getElementsByTagName('input'),
+        statusMessage = document.createElement('div');
 
-    statusMasage.classList.add('status');
+    statusMessage.classList.add('status');
 
     form.addEventListener('submit', function (event) {
         event.preventDefault();
-        form.appendChild(statusMasage);
+        form.appendChild(statusMessage);
 
         let request = new XMLHttpRequest();
         request.open('POST', 'server.php');
         request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
-        let formDate = new FormData(form);
+        let formData = new FormData(form);
 
         let obj = {};
-        formDate.forEach(function (value, key) {
+        formData.forEach(function (value, key) {
             obj[key] = value;
         });
         let json = JSON.stringify(obj);
 
         request.send(json);
 
-        request.send(formDate);
-
         request.addEventListener('readystatechange', function () {
             if (request.readyState < 4) {
-                statusMasage.innerHTML = message.loading;
+                statusMessage.innerHTML = message.loading;
             } else if (request.readyState === 4 && request.status == 200) {
-                statusMasage.innerHTML = message.success;
+                statusMessage.innerHTML = message.success;
             } else {
-                statusMasage.innerHTML = message.failure;
+                statusMessage.innerHTML = message.failure;
             }
         });
 

@@ -1,42 +1,73 @@
+// Promise
 
-let inputRub = document.getElementById('rub'),
-    inputUsd = document.getElementById('usd');
+let money = 1;
 
-inputRub.addEventListener('input', () => {
-    let request = new XMLHttpRequest();
-    request.open('GET', 'js/a.json');
-    request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-    request.send();
-
-    request.addEventListener('readystatechange', function () {
-        if (request.readyState === 4 && request.status == 200) {
-            let date = JSON.parse(request.response);
-            inputUsd.value = inputRub.value / date.usd;
-            if (!isNaN(inputRub.value)) {
-                inputUsd.value = inputRub.value / date.usd;
-            } else {
-                inputUsd.value = '';
-            }
-        } else {
-            inputUsd.value = "Ошибка!";
-        }
+function shoot(arrow) {
+    console.log('Вы сделали выстрел...');
+    let promise = new Promise(function (resolve, reject) {
+        setTimeout(function () {
+            Math.random() > .5 ? resolve({}) : reject('Вы промахнулись...');
+        }, 3000)
     });
-});
+    return promise;
+};
 
-// http-запросы
-// XMLHttpRequest(); - Объект
+function win() {
+    console.log('Вы победили!');
+    (money == 1) ? buyBeer() : giveMoney();
+}
 
-// Методы
-// open - Настройка запроса
-// method - общение между клиентом и сервером GET POST
-// URL - Путь к серверу локальный глобальный итд
-// async - Асинхронность запроса по умолчанию true (false)
-// login password - Имя пользователя и пороль
+function buyBeer() {
+    console.log('Вам вручили медаль!');
+}
 
+function giveMoney(money) {
+    console.log('Вам заплатили!');
+}
 
-// Свойство
-// status - http-код ответ от сервера - 404, 403, 0 итд
-// statusText - Текстовый ответ от сервера - ok, notfound
-// responseText - Текстовый ответ сервера от разработчика  - response
-// readyState - Текущая состояние запроса - этапы 
+function loose() {
+    console.log('Вы проиграли!');
+}
 
+shoot({})
+    .then(mark => console.log('Вы попали в цель!'))
+    .then(win)
+    .catch(loose)
+
+// let money = 1;
+
+// function shoot(arrow, headshot, fail) {
+//     console.log('Вы сделали выстрел...');
+
+//     setTimeout(function () {
+//         Math.random() > .5 ? headshot({}) : fail('Вы промахнулись...');
+//     }, 3000)
+// };
+
+// function win() {
+//     console.log('Вы победили!');
+//     (money == 1) ? buyBeer() : giveMoney();
+// }
+
+// function buyBeer() {
+//     console.log('Вам вручили медаль!');
+// }
+
+// function giveMoney(money) {
+//     console.log('Вам заплатили!');
+// }
+
+// function loose() {
+//     console.log('Вы проиграли!');
+// }
+
+// shoot({},
+//     function (mark) {
+//         console.log('Вы попали в цель!');
+//         win(mark, buyBeer, giveMoney);
+//     },
+//     function (miss) {
+//         console.error(miss);
+//         loose();
+//     }
+// )
