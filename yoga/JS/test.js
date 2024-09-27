@@ -111,11 +111,11 @@ window.addEventListener('DOMContentLoaded', function () {
         failure: 'Что-то пошло не так...'
     };
 
-    let form = document.querySelector('.main-form'),
-        formBottom = getElementById('form'),
-        input = getElementsByTagName('input'),
+    let form = document.querySelector('.main-form')[0],
+        input = document.getElementsByTagName('input'),
+        formBottom = document.getElementById('form'),
         statusMessage = document.createElement('div');
-        statusMessage.classList.add('status');
+    statusMessage.classList.add('status');
 
     function sendForm(elem) {
         elem.addEventListener('submit', function (e) {
@@ -123,14 +123,19 @@ window.addEventListener('DOMContentLoaded', function () {
             elem.appendChild(statusMessage);
             let formDate = new FormData(elem);
 
+            let obj = {};
+            formDate.forEach(function (value, key) {
+                obj[key] = value;
+            });
+            let json = JSON.stringify(obj);
+
+            request.send(json);
+
             function postData(data) {
 
                 return new Promise(function (resolve, reject) {
-
                     let request = XMLHttpRequest();
-
                     request.open('POST', 'server.php');
-
                     request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
                     request.onreadystatechange = function () {
@@ -167,7 +172,58 @@ window.addEventListener('DOMContentLoaded', function () {
                 .then(clearInput)
 
         })
-        sendForm(form);
-        sendForm(formBottom);
     }
+    sendForm(form);
+    sendForm(formBottom);
+
+    //slider
+
+    let slideIndex = 1,
+        slides = document.querySelectorAll('.slider-item'),
+        prev = document.querySelector('.prev'),
+        next = document.querySelector('.next'),
+        dotsWrap = document.querySelector('.slider-dots'),
+        dots = document.querySelectorAll('.dot');
+
+    showSlides(slideIndex);
+
+    function showSlides(n) {
+
+        if (n > slides.length) {
+            slideIndex = 1;
+        }
+        if (n < 1) {
+            slideIndex = slides.length;
+        }
+
+        slides.forEach((item) => item.style.display = 'none');
+        // for (let i = 0; i < slides.length; i++) {
+        //     slides[i].style.display = 'none';
+        // }
+        dots.forEach((item) => item.classList.remove('dot-active'));
+
+        slides[slideIndex - 1].style.display = 'block';
+        dots[slideIndex - 1].classList.add('dot-active');
+    }
+
+    function plusSlide(n) {
+        showSlides(slideIndex += n)
+    }
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+    prev.addEventListener('click', function () {
+        plusSlide(-1);
+    });
+    next.addEventListener('click', function () {
+        plusSlide(1);
+    });
+
+    dotsWrap.addEventListener('click', function (event) {
+        for (let i = 0; i < dots.length + 1; i++) {
+            if (event.target.classList.contains('dot') && event.target == dots[i - 1]) {
+                currentSlide(i);
+            }
+        }
+    });
 });
