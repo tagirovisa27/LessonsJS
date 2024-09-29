@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', function () {
         input = document.getElementsByTagName('input'),
         formBottom = document.getElementById('form'),
         statusMessage = document.createElement('div');
-    statusMessage.classList.add('status');
+        statusMessage.classList.add('status');
 
     function sendForm(elem) {
         elem.addEventListener('submit', function (e) {
@@ -176,7 +176,7 @@ window.addEventListener('DOMContentLoaded', function () {
     sendForm(form);
     sendForm(formBottom);
 
-    //slider
+    // slider
 
     let slideIndex = 1,
         slides = document.querySelectorAll('.slider-item'),
@@ -224,6 +224,49 @@ window.addEventListener('DOMContentLoaded', function () {
             if (event.target.classList.contains('dot') && event.target == dots[i - 1]) {
                 currentSlide(i);
             }
+        }
+    });
+
+    // Calc
+
+    let persons = document.querySelectorAll('.counter-block-input')[0],
+        restDays = document.querySelectorAll('.counter-block-input')[1],
+        place = document.getElementById('select'),
+        totalValue = document.getElementById('total'),
+        personsSun = 0,
+        daysSum = 0,
+        total = 0;
+
+    totalValue.innerHTML = 0;
+
+    persons.addEventListener('input', function () {
+        personsSun = +this.value;
+        total = (daysSum + personsSun) * 4000;
+
+        if (restDays.value == '') {
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = total;
+        }
+    });
+
+    restDays.addEventListener('input', function () {
+        daysSum = +this.value;
+        total = (daysSum + personsSun) * 4000;
+
+        if (persons.value == '') {
+            totalValue.innerHTML = 0;
+        } else {
+            totalValue.innerHTML = total;
+        }
+    });
+
+    place.addEventListener('input', function () {
+        if (restDays.value == '' || persons.value == '') {
+            totalValue.innerHTML = 0;
+        } else {
+            let a = total;
+            totalValue.innerHTML = a * this.options[this.selectedIndex].value;
         }
     });
 });
