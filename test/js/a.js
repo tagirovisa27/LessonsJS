@@ -1,18 +1,20 @@
-localStorage.setItem('number', 1);
+let json = '{"id":2}'
 
-console.log(localStorage.getItem('number'));
 
-localStorage.removeItem('number');
+try {
+  let user = JSON.parse(json);
+  console.log(user);
+  if (!user.name) {
+    throw new   Error('В этих данных нет имени');
+  }
+} catch(error) {
+    console.log(error.name);
+    console.log(error.message);
+    console.log(error.stack);
 
-localStorage.clear();
-
-let persone = {
-    name: 'Isa',
-    age: 23,
-    tech: ['mobile', 'notebook', 'books']
+    console.log('Мы получили ошибку : {error.name}');
+} finally {
+    console.log('Я выполнюсь всегда!');
 }
 
-let serializedPersone = JSON.stringify(persone);
-    localStorage.setItem('Isa', serializedPersone);
-
-console.log(JSON.parse(localStorage.getItem('Isa')));
+console.log('прогер');
