@@ -1,40 +1,18 @@
-let inputRub = document.getElementById('rub'),
-    inputUsd = document.getElementById('usd');
+localStorage.setItem('number', 1);
 
-inputRub.addEventListener('input', () => {
+console.log(localStorage.getItem('number'));
 
-    function catchData() {
+localStorage.removeItem('number');
 
-        return new Promise(function (resolve, reject) {
-            let request = new XMLHttpRequest();
-            request.open("GET", "js/a.json");
-            request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-            request.send();
+localStorage.clear();
 
-            request.onload = function () {
-                if (request.readyState === 4) {
-                    if (request.status == 200) {
-                        resolve(this.response)
-                    }
-                    else {
-                        reject();
+let persone = {
+    name: 'Isa',
+    age: 23,
+    tech: ['mobile', 'notebook', 'books']
+}
 
-                    }
-                }
-            }
-        });
-    };
+let serializedPersone = JSON.stringify(persone);
+    localStorage.setItem('Isa', serializedPersone);
 
-    catchData()
-        .then(response => {
-            if (isNaN(inputRub.value)) {
-                inputUsd.value = inputRub.value / data.usd;
-            }
-            console.log(response);
-            let data = JSON.parse(response);
-            inputUsd.value = inputRub.value / data.usd;
-        })
-        .then(() => console.log(5000))
-        .catch(() => inputUsd.value = '')
-        .catch(() => inputUsd.value = 'Что-то пошло не так')
-});
+console.log(JSON.parse(localStorage.getItem('Isa')));

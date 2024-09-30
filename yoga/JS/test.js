@@ -115,7 +115,7 @@ window.addEventListener('DOMContentLoaded', function () {
         input = document.getElementsByTagName('input'),
         formBottom = document.getElementById('form'),
         statusMessage = document.createElement('div');
-        statusMessage.classList.add('status');
+    statusMessage.classList.add('status');
 
     function sendForm(elem) {
         elem.addEventListener('submit', function (e) {
@@ -260,7 +260,7 @@ window.addEventListener('DOMContentLoaded', function () {
             totalValue.innerHTML = total;
         }
     });
-
+    
     place.addEventListener('input', function () {
         if (restDays.value == '' || persons.value == '') {
             totalValue.innerHTML = 0;
