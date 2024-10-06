@@ -1,23 +1,19 @@
+// SPA - Single Page Application - Одностраничное приложение
 
-$(document).ready(function () {
-    $('.list-item:first').hover(function () {
-        $(this).toggleClass('active');
-    });
-    $('.list-item:eq(1)').on('click', function () {
-        $('.block:even').fadeToggle('4000');
-    });
-    $('.list-item:eq(4)').on('click', function () {
-        $('.block:odd').animate(
-            {
-                opacity: 'toggle',
-                height: 'toggle'
-            }, 3000
-        )
-    });
-});
+// Библиотеки и фреймаворки
 
-// document.querySelectorAll('.list-item').forEach(); - $
-// classList - toggleClass
-// addEventListener(); - on
-// fetch - $.ajax
-// animate.css - animate
+// 1 node.js - npm
+// 2 TypeScript - ЯП
+// 3 Webpack - Сборщик файлов
+// 4 MVC - (modal view controler)
+// 5 Angular 
+
+// 1 node.js - npm
+// 2 Babel - software
+// 3 JSX - Препроцессор
+// 4 Webpack - Сборщик файлов
+// React
+
+// 1 node.js - npm
+// 2 Babel - software
+// 3 Webpack - Сборщик файлов
