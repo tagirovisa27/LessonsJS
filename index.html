@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COUNTER</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="icons/icon.png">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div id="modalBackground" class="modal-background"></div>
+        <div class="modal-window">
+            <p id="modalText"></p>
+        </div>
+        <div class="btns-modal">
+            <button class="btns">SEND</button>
+            <button class="btns">TEST</button>
+            <button class="btns">AUDIO</button>
+        </div>
+        <div class="section-counter">
+            <div class="counter">
+                <div class="title">COUNTER</div>
+                <div class="screen" id="screen-counter"></div>
+                <div class="counter-btns">
+                    <button class="color-counter">COLOR</button>
+                    <button class="btn-count">COUNT</button>
+                    <button class="btn-reset">RESET</button>
+                </div>
+            </div>
+        </div>
+        <div class="section-play">
+            <div class="screen-play"></div>
+            <div class="time-info">
+                <span id="current-time">0:00</span> / <span id="duration-time">0:00</span>
+                <div class="audio-progress-bar" id="audio-progress-bar">
+                    <div class="progress" id="progress"></div>
+                </div>
+            </div>
+            <div class="counter-btns-play">
+                <button class="btn-play">
+                    <div class="btn-run"></div>
+                    <audio id="audio" src="mp3/audio.mp3"></audio>
+                    <audio id="audio" src="mp3/Sura_Lukman (mp3cut.net).mp3"></audio>
+                    <audio id="audio" src="mp3/Prekrasnoe_chtenie_Korana.mp3"></audio>
+                    <audio id="audio" src="mp3/Sura__Al_Mulk.mp3"></audio>
+                </button>
+                <button class="btn-left">
+                    <div class="btn-left-back"></div>
+                </button>
+                <button class="btn-right">
+                    <div class="btn-right-cont">
+                </button>
+            </div>
+        </div>
+        <div class="section-tests">
+            <div class="tests">
+                <div class="test-text"></div>
+                TESTS
+                <br>
+                <button class="start-btn-test">START</button>
+            </div>
+            <div class="test-solution">
+                <p class="text-title"></p>
+                <div class="test-question-options">
+                    <p class="nunmber-question">Вопрос №1</p>
+                    <p class="options">Вопрос . . .</p>
+                </div>
+                <div class="test-tickets">
+                    <div class="numers">
+                        <input id="html" type="checkbox">
+                        <p class="tickets-number">1. Вариант</p>
+                    </div>
+                    <div class="numers">
+                        <input id="html" type="checkbox">
+                        <p class="tickets-number">2. Вариант</p>
+                    </div>
+                    <div class="numers">
+                        <input id="html" type="checkbox">
+                        <p class="tickets-number">3. Вариант</p>
+                    </div>
+                    <div class="numers">
+                        <input id="html" type="checkbox">
+                        <p class="tickets-number">4. Вариант</p>
+                    </div>
+                </div>
+                <div class="timer-test">00:00</div>
+                <div class="solution-test-btns">
+                    <button class="test-btns">BACK</button>
+                    <button class="test-btns">HOME</button>
+                    <button class="test-btns">NEXT</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="JS/script.js"></script>
+</body>
+
+</html>
