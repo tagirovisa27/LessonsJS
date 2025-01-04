@@ -481,7 +481,8 @@ body {
 .solution-test-btns {
     display: flex;
     justify-content: space-around;
-    margin-bottom: 50px;
+    align-items: center;
+    margin-bottom: 80px;
 }
 
 .test-btns {
@@ -498,7 +499,27 @@ body {
 
 .test-btns:active {
     transform: scale(0.96);
-    background-color: rgb(240, 240, 240);
+    background-color: rgb(255, 255, 255);
+}
+
+.test-btns-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    background-color: #fff;
+    border: none;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgb(187, 187, 187);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.test-btns-arrow:active {
+    transform: scale(0.94);
+    background-color: rgb(255, 255, 255);
 }
 
 .numers {
