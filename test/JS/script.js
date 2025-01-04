@@ -78,7 +78,8 @@ const audioCounter = [
     'mp3/audio.mp3',
     'mp3/Sura_Lukman (mp3cut.net).mp3',
     'mp3/Prekrasnoe_chtenie_Korana.mp3',
-    'mp3/Sura__Al_Mulk.mp3'
+    'mp3/Sura__Al_Mulk.mp3',
+    'mp3/Sura Al-Mu1minun .mp3'
 ];
 
 
@@ -86,7 +87,8 @@ const audioCounterText = [
     'Аль-Бакара - البقرة',
     'Сура Лукман - لقمان',
     'Коран - القرآن',
-    'Сура Аль-Мульк - الملك'
+    'Сура Аль-Мульк - الملك',
+    'Sura Al-Mu1minun - المؤمنون'
 ];
 
 audio.addEventListener('ended', function () {
