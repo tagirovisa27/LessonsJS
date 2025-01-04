@@ -291,11 +291,3 @@ startBtnTest.addEventListener('click', function () {
    modalBtns[1].style.display = 'none';
    modalBtns[2].style.display = 'none';
 });
-
-solutionTestBtns.addEventListener('click', function () {
-    counter.style.display = 'block';
-    modalBtns[0].style.display = 'block';
-    modalBtns[1].style.display = 'block';
-    modalBtns[2].style.display = 'block';
-    testSolution.style.display = 'none';
-});
