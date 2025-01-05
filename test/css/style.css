@@ -433,7 +433,7 @@ body {
 .test-solution {
     display: none;
     margin: 0 auto;
-    margin-top: 70px;
+    margin-top: 100px;
     width: 850px;
     background-color: #fff;
     border-radius: 10px;
@@ -548,7 +548,7 @@ input[type="checkbox"] {
     width: 40px;
     height: 35px;
     margin-left: 10px;
-    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
     border: 1px solid rgb(187, 187, 187);
     border-radius: 5px;
     cursor: pointer;
@@ -556,5 +556,6 @@ input[type="checkbox"] {
 } 
 
 .section-numbers-questions {
+    display: none;
     margin: 20px 0px 20px 0px;
 }

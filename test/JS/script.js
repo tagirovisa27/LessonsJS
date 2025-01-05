@@ -21,6 +21,8 @@ const screenCounter = document.getElementById('screen-counter'),
     startBtnTest = document.getElementsByClassName('start-btn-test')[0],
     textTitle = document.getElementsByClassName('text-title')[0],
     blockTest = document.getElementsByClassName('block-test')[0],
+    solutionTestBtns = document.getElementsByClassName('solution-test-btns')[0],
+    sectionNumbersQuestions = document.getElementsByClassName('section-numbers-questions')[0],
     timerTest = document.getElementsByClassName('timer-test'),
     modalWindow = document.querySelector('.modal-window'),
     modalBackground = document.getElementById('modalBackground'),
@@ -29,7 +31,6 @@ const screenCounter = document.getElementById('screen-counter'),
     audioProgressBar = document.getElementById('audio-progress-bar'),
     progressElement = document.getElementById('progress'),
     modalBtns = document.getElementsByClassName('btns'),
-    solutionTestBtns = document.getElementsByClassName('solution-test-btns')[0],
     sectionCounter = document.getElementsByClassName('section-counter');
 
 // Изначальное значение счетчика 
@@ -287,8 +288,9 @@ for (let i = 0; i < modalBtns.length; i++) {
 textTitle.innerHTML = 'بسم الله الرحمن  <br>Во имя Аллаха, Милостивого, Милосердного!';
 
 startBtnTest.addEventListener('click', function () {
-   tests.style.display = 'none';
    testSolution.style.display = 'block';
+   sectionNumbersQuestions.style.display = 'block';
+   tests.style.display = 'none';
    modalBtns[0].style.display = 'none';
    modalBtns[1].style.display = 'none';
    modalBtns[2].style.display = 'none';
