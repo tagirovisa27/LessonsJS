@@ -433,7 +433,7 @@ body {
 .test-solution {
     display: none;
     margin: 0 auto;
-    margin-top: 100px;
+    margin-top: 70px;
     width: 850px;
     background-color: #fff;
     border-radius: 10px;
@@ -531,4 +531,30 @@ input[type="checkbox"] {
     transform: scale(1.5);
     accent-color: #000000;
     cursor: pointer;
+}
+
+.numers-block {
+    width: 700px;
+    height: 45px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+}
+
+.numbers-questions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 35px;
+    margin-left: 10px;
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgb(187, 187, 187);
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+} 
+
+.section-numbers-questions {
+    margin: 20px 0px 20px 0px;
 }

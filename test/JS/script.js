@@ -293,4 +293,3 @@ startBtnTest.addEventListener('click', function () {
    modalBtns[1].style.display = 'none';
    modalBtns[2].style.display = 'none';
 });
-
