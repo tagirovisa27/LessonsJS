@@ -89,7 +89,7 @@ const audioCounterText = [
     'Сура Лукман - لقمان',
     'Коран - القرآن',
     'Сура Аль-Мульк - الملك',
-    'Sura Al-Mu1minun - المؤمنون'
+    'Сура Ал-Муъминун - المؤمنون'
 ];
 
 audio.addEventListener('ended', function () {
@@ -283,9 +283,7 @@ for (let i = 0; i < modalBtns.length; i++) {
     });
 }
 
-// Секция тесты
-
-textTitle.innerHTML = 'بسم الله الرحمن  <br>Во имя Аллаха, Милостивого, Милосердного!';
+//
 
 startBtnTest.addEventListener('click', function () {
    testSolution.style.display = 'block';
@@ -294,4 +292,5 @@ startBtnTest.addEventListener('click', function () {
    modalBtns[0].style.display = 'none';
    modalBtns[1].style.display = 'none';
    modalBtns[2].style.display = 'none';
+   modalBtns[3].style.display = 'none';
 });
