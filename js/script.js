@@ -1,416 +1,467 @@
-// 1-й урок
-
-// Переменные - это хранилищя информации (данных)
-
-// var - существует везде в коде 
-// let - создается когда код доходит до нее (хостинг) {} 
-// const - Константум нельзя поменять ее название
-
-// var user = 'isa';
-// let numberPi  = 10;
-// const head = 1;
-
-// Имя переменной можно состоять из букв, цифр, 
-// символов доллара, и нижняя подчеркивание
-// Первый символ не должен быть цифрой
-// В названии переменных нельзя использовать такие слова как:
-// error alert prompt итд
-// Переменные должны быть написаны в формате Кэмалкейс
-// В названии переменной должен быть смысловое слово
-
-
-// 2-й урок
-
-// Типы данных
-
-// number - 1,2,3... NaN Infinity
-// String - '', "", 
-// Boolean true/false
-// null - 0
-// undefined - []
-// Symbol(); - @!# 
-// Object{} - [complex data]
-
-
-// 3-й урок
-
-// Функции для вывода информации (модальная окно)
-
-// alert - Вывод на странице
-// prompt - Вывод на странице
-// confirm - Вывод на странице
-// console.log(); - Вывод в консоль (Консоль разработчика)
-
-// let a = +prompt('aaa'); '+' изменяет тип данных 1 <=> Aa  
-// console.log(typeof(a)); typeof - Проверяет какой тип данных веден
-
-// Префиксная и постфиксная форма 
-// Префиксная форма возвращает измененная значения ++a1
-// Постфиксная форма возвращает старая значения a1--
-
-// let box = 2,
-//     dox = 3;
-
-// box++;
-// dox--;
-
-// console.log(box);
-// console.log(dox);
-
-// console.log(10%2); % - Возвращает остаток деления
-
-
-// 4-й урок
-
-// Операторы 
-
-// = Знак присваивание - let = 1;
-// == Знак равенство  - console.log(2 == 2);
-// === Проверка по типом данных - console.log(1 === 'string');
-
-// && И - Выдает правду если обе варианты правдивы 
-// let a = true;
-// let b = true;
-// console.log(a && b);
-
-// || ИЛИ - Выдает правду если один из вариантов привильный
-// let a = true;
-// let b = false;
-// console.log(a || b);
-
-// let a = false;
-// let b = false;
-
-// console.log(a && b); 
-// console.log(a || b);
-// false
-
-// ! - Оператор отрицание, обратное значение, trur на false  
-
-// let a = false;
-// let b = false;
-
-// console.log(a && b); 
-// console.log(a || !b);
-
-
-// 5-й урок
-
-// Условия
-
-// > - Знак больше 
-// < - Знак меньше 
-
-// if (2 * 4 == 8) {
-//     console.log('Верно!');
-// } else {
-//     console.log('Неверно!');
-// }
-
-// Вложенные условия 
-
-// let num = 50;
-
-// if (num < 49) {
-//     console.log('Неверно!');
-// } else if (num > 100) {
-//     console.log('Много!');
-// } else {
-//     console.log('Верно!');
-// }
-
-// Тернарный оператор 
-// (num == 50) ? console.log('Верно!') : console.log('Неверно!');
-
-// switch case - Условия конструкция, 
-// модефекация поддерживает несколько if/else
-
-// switch (num) {
-//     case num < 49:
-//         console.log('Неверно!');
-//         break;
-//     case num > 100:
-//         console.log('Много!');
-//         break;
-//     case num > 80:
-//         console.log('Все еще много!');
-//         break;
-//     case 50:
-//         console.log('Верно!');
-//         break;
-//     default:
-//         console.log('Что-то пошло не так!');
-//         break;      
-// }
-
-
-// 6-й урок
-
-// Циклы - действия которая повторяется несколько раз 
-
-// while - проверка -> действия 
-// do while - действия -> проверка
-// for - условия шаги действия 
-
-// let num = 50;
-
-// while (num < 55) {
-//   console.log(num);
-//   num++;
-// }
-
-
-// do {
-//   console.log(num);
-//   num++;
-// }
-// while (num < 55)
-
-// for (let i = 1; i < 8; i++) {
-//   console.log(i);
-// }
-
-
-// В таком случай цикл будет работать
-// до определенного момента - до 6 (break) 
-
-// for (let i = 1; i < 8; i++) { 
-//   if (i == 6) {
-//     break;
-//   }
-//   console.log(i);
-// }
-
-
-// В таком случай цикл пропускает число - 6 
-
-// for (let i = 1; i < 8; i++) { 
-//   if (i == 6) {
-//     continue;
-//   }
-//   console.log(i);
-// }
-
-
-// 7-й урок
-
-// Функция - это именованная часть кода, 
-// действия которая происходит если нажмем на кнопку (пример)  
-
-// function showMessage(text) {    text - аргумент который передается 
-//     alert(text);
-// }
-// showMessage('hello world');
-
-
-// Замыкания функций, если переменная будет внутри функции
-// то она видна только внутри функций (локально) 
-// Глобальная переменная 
-// Внутри функции можно изменять переменную  
-// Когда внутри функций есть переменная она будет искать ее
-// внутри себя, а потом вне
-
-// function startBtnClick() {
-//    let first = 1;
-// }
-
-// console.log(first);
-// startBtnClick();
-
-// let first = 1;
-
-// function firstNumber(text) {
-//     console.log('Число ПИ');
-//     first = 2;
-// } 
-// firstNumber(first);
-// console.log(first);
-
-// return - возвращает значения 
-
-// function calc(a, b) {
-//     return(a + b);
-// }
-// console.log(calc(2,2));
-
-// function retVar() {
-//     let num = 50;
-//     return num;
-// }
-
-// let anotherNum = retVar();
-// console.log(anotherNum);
-
-// function declaration - объявление еще до ее вызова, как переменнвя var
-// function expression - это когда функция внутри переменной 
-
-// Стрелочная функция - не имеет контекст вызова
-
-// let calc = (a,b) => a + b;
-// console.log();
-
-// Методы и свойство у строка чисел
-
-// Пример:
-
-// let userName = 'isa';
-// let age = '24,5';
-
-// console.log(userName.length);
-// console.log(parseFloat(age));
-
-
-// 8-й урок
-
-// Callback-функции  - это функция которая выполняется 
-// после того как другая функция завершила свое выполнения 
-// Вторая функция выполняется сразу после первой 
-// В качестве аргумента любая функция может взять другую функцию
-// это - Callback-функция
-
-// function LearnJS(lang, callback) {
-//     console.log('Я учу ' + lang);
-//     callback();
-// }
-
-// LearnJS('JavaScript', function() {
-//     console.log('Я прошел урок!');
-// }) 
-
-// function done() {
-//     console.log('Я прошел урок!');
-// }
-
-// LearnJS('JavaScript', done);
-
-
-// 9-й урок
-
-// Объекты - это комплексный тип данных, - ключ: значение,
-// В свойство объекта можно вложить любой тип данных
-// В объект можно вложить другой объект (большой объект - глобальный)
-// (Методы и свойство объекта) Свойство - это что из себя представляет 
-// сам объект, а методы это его действия, что объект может сделать 
-
-
-// let options = {
-//     width: 100,
-//     height: 100,
-//     name: "test"
-// };
-
-// console.log(options.name);
-// options.bool = true; - добавление свойсво объекта
-
-// options.colors = {   - объект внутри другого объекта
-//     border: "black",
-//     bg: "red"
-// };
-
-// delete options.bool; - удаление свойсво объекта
-//console.log(options);
-
-// for (let key in options) {
-//     console.log('Свойство ' + key + ' имеет значение ' + options[key]);
-// }
-// console.log(Object.keys(options).length);
-
-
-// 10-й урок
-
-// Массивы и псевдомассивы - это структуры которые 
-// содержат элементы по порядку
-
-
-// let arr = [1, 2, 3]; - Массив
-
-// arr.push(); - добавление элемента в конце
-// arr.pop(); - удаление элемента с конца 
-// arr.unshift(); - добавление элемента в начале
-// arr.shift(); - удаление элемента в начале
-
-// console.log(arr);
-
-// for (let i = 0; i < arr.length; i++) {
-//     console.log(arr[i]);
-// }
-
-// arr.forEach(function(item, i, mass){
-//     console.log(i + ': ' + item + '(массив: ' + mass + ')');
-// }); 
-
-// let mass = [1, 2, 3];
-
-// for (let key in mass) {  - Выводить только ключи у массивов
-//     console.log(key);
-// }
-
-// for (let key of mass) {  - Выводить только значение у массивов
-//     console.log(key);
-// }
-
-// let ans = prompt('', ''), 
-//     arr = [];
-
-// arr = ans.split(','); - Разделяет массив     
-// console.log(arr);
-
-// let arr = ['aaa', 'bbb', 'ccc']; 
-//     i = arr.join(', '); - Делает одну строку 
- 
-// console.log(i);
-
-// let arr = ['bbb', 'hhh', 'aaa']; 
-//     i = arr.sort(); - Сортирует массив по алфавиту
-
-//  console.log(arr); 
-
-// let arr = [5, 2, 1];
-//     i = arr.sort(compareNum); - Сортирует массив чисел по порядку
-
-// function compareNum(a,b) {
-//   return a-b; 
-// }
-// console.log(arr); 
-
-
-// 11-й урок 
-
-// Объектно-ориентированное программирование - это парадигма
-// программирования, в которой программа строится вокруг объектов, 
-// объединяющих данные (свойства) и действия (методы), взаимодействующих 
-// друг с другом
-
-// let soldier = {
-//     health: 100,
-//     armor: 100
-// };
-
-// let join = {
-//     health: 100
-// };
-
-// join.__proto__ = soldier;
-
-// console.log(join);
-// console.log(join.armor);
-
-
-// 12-й урок 
-
-// Динамическая типизация - это превращение
-// одного типа данных в другой (конкатенация)
-
-// Превращение в строку 
-
-// console.log(typeof('isa' + 27));
-// console.log(typeof('isa' + true));
-// console.log('https://vk.com/catalog/' + 5);
-
-// Превращение в число
-
-// console.log(typeof(+'isa27'));
-// let user = +prompt('hello', '');
-
-// 0, '', null, undefined, NaN - всегда false 
-// а всё остальное true 
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.getElementById("navLinks");
+const overlay = document.getElementById("overlay");
+
+
+hamburger.onclick = () => {
+    navLinks.classList.toggle("show");
+    hamburger.classList.toggle("active");
+    overlay.classList.toggle("show");
+};
+
+const pages = document.querySelectorAll(".page");
+
+function showSection(id) {
+    pages.forEach(p => p.classList.remove("active"));
+    document.getElementById(id).classList.add("active");
+}
+
+navLinks.querySelectorAll("button").forEach(btn => {
+    btn.onclick = () => {
+
+        navLinks.querySelectorAll("button").forEach(b => b.classList.remove("active"));
+
+        btn.classList.add("active");
+
+        showSection(btn.dataset.section);
+
+        navLinks.classList.remove("show");
+        hamburger.classList.remove("active");
+        overlay.classList.remove("show");
+    };
+});
+
+overlay.onclick = () => {
+    navLinks.classList.remove("show");
+    hamburger.classList.remove("active");
+    overlay.classList.remove("show");
+};
+
+let count = 0;
+const counterValue = document.getElementById("counterValue");
+
+document.getElementById("countBtn").onclick = () => {
+    count++;
+    counterValue.textContent = count;
+};
+
+document.getElementById("resetBtn").onclick = () => {
+    count = 0;
+    counterValue.textContent = count;
+};
+
+const colors = ["#0d6efd", "#6610f2", "#198754", "#dc3545", "#000000"];
+let colorIndex = 0;
+
+document.getElementById("colorBtn").onclick = () => {
+    counterValue.style.color = colors[colorIndex];
+    colorIndex = (colorIndex + 1) % colors.length;
+};
+
+const audioPlayer = document.getElementById("audioPlayer");
+const playPause = document.getElementById("playPause");
+const audioTitle = document.getElementById("audioTitle");
+const audioProgress = document.getElementById("audioProgress");
+
+const audioFiles = [
+    { src: "mp3/audio.mp3", title: "Al-Baqarah" },
+    { src: "mp3/Sura_Lukman.mp3", title: "Сура Лукман" }
+];
+
+let currentAudio = 0;
+
+function loadAudio(i) {
+    audioPlayer.src = audioFiles[i].src;
+    audioTitle.textContent = "AUDIO: " + audioFiles[i].title;
+}
+
+playPause.onclick = () => {
+    if (audioPlayer.paused) {
+        audioPlayer.play();
+        playPause.textContent = "⏸";
+    } else {
+        audioPlayer.pause();
+        playPause.textContent = "▶️";
+    }
+};
+
+audioPlayer.ontimeupdate = () => {
+    let percent = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+    audioProgress.style.width = percent + "%";
+};
+
+loadAudio(currentAudio);
+
+const pdfModal = document.getElementById("pdfModal");
+const pdfIframe = pdfModal.querySelector("iframe");
+
+document.querySelectorAll(".pdfBtn").forEach(btn => {
+    btn.onclick = () => {
+        pdfIframe.src = btn.dataset.pdf;
+        pdfModal.classList.add("show");
+    };
+});
+
+document.getElementById("closePdf").onclick = () => {
+    pdfModal.classList.remove("show");
+};
+
+const questions = [
+    {
+        question: "Где родился Пророк ﷺ ?",
+        options: ["Медина", "Мекка", "Таиф", "Ясриб"],
+        correct: 1
+    },
+    {
+        question: "В каком возрасте он получил откровение?",
+        options: ["25", "30", "40", "50"],
+        correct: 2
+    },
+    {
+        question: "Какой ангел передал Пророку Мухаммаду ﷺ первое откровение?",
+        options: ["Микаил", "Джибрил", "Исрафил", "Азраил"],
+        correctAnswer: 1
+    },
+    {
+        question: "Как звали первого мужчину, принявшего ислам?",
+        options: ["Али ибн Абу Талиб", "Умар ибн аль-Хаттаб", "Абу Бакр ас-Сиддик", "Усман ибн Аффан"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько лет длилось пророчество Пророка Мухаммада ﷺ ?",
+        options: ["20 лет", "23 года", "25 лет", "30 лет"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто была первой женой Пророка Мухаммада ﷺ ?",
+        options: ["Аиша бинт Абу Бакр", "Сауда бинт Зам’а", "Хадиджа бинт Хувайлид", "Фатима бинт Мухаммад"],
+        correctAnswer: 2
+    },
+    {
+        question: "Как называлась первая битва мусульман против курайшитов?",
+        options: ["Битва при Ухуде", "Битва при Табуке", "Битва при Бадре", "Битва при Хунейне"],
+        correctAnswer: 2
+    },
+    {
+        question: "В каком году произошел Хиджра — переселение мусульман из Мекки в Медину?",
+        options: ["610 г.", "615 г.", "622 г.", "630 г."],
+        correctAnswer: 2
+    },
+    {
+        question: "Кто стал первым халифом после смерти Пророка Мухаммада ﷺ ?",
+        options: ["Умар ибн аль-Хаттаб", "Абу Бакр ас-Сиддик", "Усман ибн Аффан", "Али ибн Абу Талиб"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто был известен как «Меч Аллаха» (Сайфуллах)?",
+        options: ["Халид ибн аль-Валид", "Умар ибн аль-Хаттаб", "Али ибн Абу Талиб", "Салман аль-Фариси"],
+        correctAnswer: 0
+    },
+    {
+        question: "Сколько лет Пророк Мухаммад ﷺ прожил в Мекке после начала откровений?",
+        options: ["10 лет", "13 лет", "15 лет", "20 лет"],
+        correctAnswer: 1
+    },
+    {
+        question: "Как звали лучшего друга и ближайшего сподвижника Пророка Мухаммада ﷺ ?",
+        options: ["Усман ибн Аффан", "Али ибн Абу Талиб", "Абу Бакр ас-Сиддик", "Саад ибн Абу Ваккас"],
+        correctAnswer: 2
+    },
+    {
+        question: "Кто был назначен главнокомандующим в битве при Муте?",
+        options: ["Зайд ибн Хариса", "Халид ибн аль-Валид", "Абдуррахман ибн Ауф", "Умар ибн аль-Хаттаб"],
+        correctAnswer: 0
+    },
+    {
+        question: "Какой сахаб был известен своей щедростью и богатством, использовав его для помощи исламу?",
+        options: ["Усман ибн Аффан", "Абдуллах ибн Масуд", "Убай ибн Кааб", "Абу Убайда ибн аль-Джаррах"],
+        correctAnswer: 0
+    },
+    {
+        question: "В каком возрасте умер Пророк Мухаммад ﷺ ?",
+        options: ["60 лет", "61 год", "63 года", "65 лет"],
+        correctAnswer: 2
+    },
+    {
+        question: "Какая битва стала поворотной для мусульман, несмотря на поражение?",
+        options: ["Битва при Бадре", "Битва при Ухуде", "Битва при Табуке", "Битва при Хандаке"],
+        correctAnswer: 1
+    },
+    {
+        question: "Как звали дядю Пророка Мухаммада ﷺ , который защищал его в Мекке?",
+        options: ["Абу Лахаб", "Абу Талиб", "Аббас ибн Абд аль-Мутталиб", "Хамза ибн Абд аль-Мутталиб"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто был первым ребёнком, принявшим ислам?",
+        options: ["Хасан ибн Али", "Хусейн ибн Али", "Али ибн Абу Талиб", "Зайд ибн Хариса"],
+        correctAnswer: 2
+    },
+    {
+        question: "Кто был известен как «переводчик Корана» (Таржуман аль-Коран)?",
+        options: ["Ибн Аббас", "Ибн Масуд", "Убай ибн Кааб", "Саад ибн Муад"],
+        correctAnswer: 0
+    },
+    {
+        question: "В каком году мусульмане вернулись в Мекку (Фатх Мекка)?",
+        options: ["6 год хиджры", "8 год хиджры", "10 год хиджры", "12 год хиджры"],
+        correctAnswer: 1
+    },
+    {
+        question: "Как звали няню Пророка Мухаммада ﷺ ?",
+        options: ["Умм Аиман", "Халима ас-Саадия", "Барка", "Умм Хабиба"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто был известен как «Амин аль-умма» (Хранитель уммы)?",
+        options: ["Абу Бакр ас-Сиддик", "Абу Убайда ибн аль-Джаррах", "Саад ибн Муад", "Хамза ибн Абд аль-Мутталиб"],
+        correctAnswer: 1
+    },
+    {
+        question: "Сколько сахабов участвовало в битве при Бадре?",
+        options: ["214", "313", "400", "1000"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто был известен своей красноречивой речью и умением распространять ислам?",
+        options: ["Абдуллах ибн Масуд", "Мусаб ибн Умайр", "Саад ибн Абу Ваккас", "Зайд ибн Хариса"],
+        correctAnswer: 1
+    },
+    {
+        question: "Какое событие произошло в году, известном как «Год печали» (Ам аль-Хузн)?",
+        options: ["Хиджра в Медину", "Смерть Абу Талиба и Хадиджи", "Битва при Табуке", "Фатх Мекка"],
+        correctAnswer: 1
+    },
+    {
+        question: "В каком году была Битва при Ухуде?",
+        options: ["1 год хиджры", "3 год хиджры", "5 год хиджры", "7 год хиджры"],
+        correctAnswer: 1
+    },
+    {
+        question: "Как звали мать Пророка Мухаммада ﷺ ?",
+        options: ["Амира бинт Абд аль-Уддар", "Амина бинт Уайхаб", "Халима бинт Саадия", "Умм Аиман"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто был первым рабом, принявшим ислам?",
+        options: ["Зайд ибн Хариса", "Билал ибн Рабах", "Сумая бинт Хайят", "Абу Фахм"],
+        correctAnswer: 1
+    },
+    {
+        question: "Как назывался первый мусульманский календарь?",
+        options: ["Хиджри", "Мекканский", "Лунный", "Суннитский"],
+        correctAnswer: 0
+    },
+    {
+        question: "Как называлась последняя битва, в которой участвовал Пророк Мухаммад ﷺ ?",
+        options: ["Битва при Бадре", "Битва при Ухуде", "Битва при Табуке", "Битва при Хунейне"],
+        correctAnswer: 2
+    },
+    {
+        question: "Кто был первым человеком, принявшим ислам среди женщин?",
+        options: ["Аиша бинт Абу Бакр", "Фатима бинт Мухаммад", "Хадиджа бинт Хувайлид", "Сауда бинт Зам"],
+        correctAnswer: 2
+    },
+    {
+        question: "Сколько раз Пророк Мухаммад ﷺ совершил хадж до переселения?",
+        options: ["Один", "Два", "Три", "Четыре"],
+        correctAnswer: 2
+    },
+    {
+        question: "Как называется священная мечеть, расположенная в Медине и построенная для молитв Пророка Мухаммада ﷺ?",
+        options: ["Мечеть аль-Харам", "Мечеть аль-Набави", "Мечеть аль-Акса", "Мечеть Кибла"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто из сподвижников Пророка Мухаммада ﷺ пал шахидом в битве при Ухуде?",
+        options: ["Абдуллах ибн Масуд", "Хамза ибн Абд аль-Мутталиб", "Али ибн Абу Талиб", "Умар ибн аль-Хаттаб"],
+        correctAnswer: 1
+    },
+    {
+        question: "В каком году родился Пророк Мухаммад ﷺ ?",
+        options: ["580 г.", "600 г.", "610 г.", "570 г."],
+        correctAnswer: 3
+    },
+    {
+        question: "Как называлась мечеть, в которой Пророк Мухаммад ﷺ совершил ночное путешествие и вознесение на небеса?",
+        options: ["Мечеть аль-Харам", "Мечеть аль-Набави", " Мечеть аль-Акса", "Мечеть Табук"],
+        correctAnswer: 2
+    },
+    {
+        question: "Какое событие произошло в 630 году?",
+        options: ["Битва при Ухуде", " Фатх Мекка (Открытие Мекки)", "Хиджра", "Битва при Бадре"],
+        correctAnswer: 1
+    },
+    {
+        question: "Какое событие произошло в Год слона (Ам аль-Фил)?",
+        options: ["Построение Мечети аль-Харам", "Рождение Пророка Мухаммада ﷺ", "Первое откровение Пророку", "Открытие Мекки"],
+        correctAnswer: 1
+    },
+    {
+        question: "Кто был главнокомандующим мусульманской армии в битве при Бадре?",
+        options: ["Пророк Мухаммад ﷺ", "Абу Бакр ас-Сиддик", "Халид ибн аль-Валид", "Али ибн Абу Талиб"],
+        correctAnswer: 0
+    },
+    {
+        question: "Какая из дочерей Пророка Мухаммада ﷺ считается одной из самых благородных фигур в исламе, являясь символом верности и терпения?",
+        options: ["Асия бинт Мухаммад", "Халима бинт Мухаммад", "Фатима бинт Мухаммад", "Зейнаб бинт Мухаммад"],
+        correctAnswer: 2
+    }
+];
+
+let currentQuestion = 0;
+let answers = [];
+let timeLeft = 20 * 60;
+let timerInterval;
+
+const startBtn = document.getElementById("startTest");
+const testBox = document.getElementById("testBox");
+const optionsBox = document.getElementById("optionsBox");
+const questionText = document.getElementById("questionText");
+const timerEl = document.getElementById("timer");
+
+const finishScreen = document.getElementById("finishScreen");
+const finalScore = document.getElementById("finalScore");
+
+function startTimer() {
+
+    clearInterval(timerInterval);
+
+    timeLeft = 20 * 60;
+
+    timerInterval = setInterval(() => {
+
+        let minutes = Math.floor(timeLeft / 60);
+        let seconds = timeLeft % 60;
+
+        timerEl.textContent =
+            `${minutes}:${seconds < 10 ? "0" : ""}${seconds}`;
+
+        timeLeft--;
+
+        if (timeLeft < 0) {
+            finishTest();
+        }
+
+    }, 1000);
+}
+
+
+function showQuestion() {
+    let q = questions[currentQuestion];
+    questionText.textContent = q.question;
+    optionsBox.innerHTML = "";
+
+    q.options.forEach((opt, i) => {
+        let div = document.createElement("div");
+        div.classList.add("option-btn");
+        div.textContent = opt;
+
+        if (answers[currentQuestion] === i) div.classList.add("selected");
+
+        div.onclick = () => {
+            answers[currentQuestion] = i;
+            document.querySelectorAll(".option-btn").forEach(b => b.classList.remove("selected"));
+            div.classList.add("selected");
+        };
+
+        optionsBox.appendChild(div);
+    });
+
+    document.querySelector(".progress-fill").style.width =
+        ((currentQuestion + 1) / questions.length) * 100 + "%";
+}
+
+function finishTest() {
+
+    clearInterval(timerInterval);
+
+    testBox.style.display = "none";
+
+    testButtons.style.display = "none";
+
+    finishScreen.style.display = "block";
+
+    let score = 0;
+    questions.forEach((q, i) => {
+        if (answers[i] === q.correctAnswer) score++;
+    });
+
+    resultText.textContent = `Вы ответили правильно на ${score} из ${questions.length}`;
+}
+
+const testButtons = document.querySelector(".test-buttons");
+
+startBtn.onclick = () => {
+
+    startBtn.style.display = "none";
+
+    testBox.style.display = "block";
+
+    testButtons.style.display = "flex";
+
+    finishScreen.style.display = "none";
+
+    currentQuestion = 0;
+    answers = [];
+
+    startTimer();
+    showQuestion();
+};
+
+retryTest.onclick = () => {
+
+    finishScreen.style.display = "none";
+
+    testButtons.style.display = "none";
+
+    startBtn.style.display = "block";
+
+    testBox.style.display = "block";
+
+    currentQuestion = 0;
+    answers = [];
+
+    progressFill.style.width = "0%";
+
+    clearInterval(timerInterval);
+    timerEl.textContent = "20:00";
+};
+
+
+document.getElementById("nextQuestion").onclick = () => {
+    if (currentQuestion < questions.length - 1) {
+        currentQuestion++;
+        showQuestion();
+    }
+};
+
+document.getElementById("prevQuestion").onclick = () => {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        showQuestion();
+    }
+};
+
+document.getElementById("finishBtn").onclick = finishTest;
+
+document.getElementById("retryTest").onclick = () => {
+
+    finishScreen.style.display = "none";
+
+    startBtn.style.display = "block";
+
+    testBox.style.display = "block";
+
+    currentQuestion = 0;
+    answers = [];
+
+    document.querySelector(".progress-fill").style.width = "0%";
+
+    questionText.textContent = "";
+    optionsBox.innerHTML = "";
+
+    clearInterval(timerInterval);
+
+    timerEl.textContent = "20:00";
+};
